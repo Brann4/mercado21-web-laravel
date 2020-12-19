@@ -19,6 +19,8 @@ class CreateCommandDetailsTable extends Migration
             $table->char('item_code', 6);
             $table->string('item_description', 200);
             $table->unsignedInteger('quantity');
+            $table->string('observation', 200)->nullable();
+            $table->string('promotion_parent', 200)->nullable();
             $table->timestamps();
             $table->foreign('command_id')->references('command_id')->on('command'); 
         });

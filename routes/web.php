@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', 'PageController@index')->name('pages.index');
+Route::get('/', 'PageController@home')->name('pages.home');
 Route::get('nosotros', 'PageController@aboutUs')->name('pages.about-us');
+Route::get('carta-digital', 'PageController@menu')->name('pages.menu');
 Route::get('contactanos', 'PageController@contactUs')->name('pages.contact-us');
 Route::get('restaurantes', 'PageController@restaurants')->name('pages.restaurants');
 Route::get('restaurante/{id}/{title}', 'PageController@restaurant')->name('pages.restaurant');
-Route::get('carta-digital', 'PageController@digitalMenu')->name('pages.cart');
 
 
 Auth::routes();

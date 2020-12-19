@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('cell_phone', 50);
             $table->string('email', 100)->unique();
             $table->string('password');
+            $table->string('token_notification', 255)->nullable();
             $table->rememberToken();
             $table->unsignedInteger('status');
             $table->timestamps();

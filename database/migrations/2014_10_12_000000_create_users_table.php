@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->string('token_notification', 255)->nullable();
             $table->unsignedInteger('user_type');
             $table->unsignedInteger('status');
             $table->timestamps();

@@ -19,6 +19,7 @@ class CreateCommandTable extends Migration
             $table->integer('restaurant_id')->unsigned();
             $table->date('command_date');
             $table->time('command_hour');
+            $table->unsignedInteger('status');
             $table->timestamps();
             $table->foreign('order_id')->references('order_id')->on('orders');
             $table->foreign('restaurant_id')->references('restaurant_id')->on('restaurants');            

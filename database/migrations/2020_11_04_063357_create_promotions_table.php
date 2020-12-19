@@ -21,7 +21,7 @@ class CreatePromotionsTable extends Migration
             $table->string('name', 200);
             $table->text('description')->nullable();
             $table->string('image', 200)->nullable();
-            $table->decimal('price', 4, 2);
+            $table->decimal('price', 6, 2);
             $table->unsignedInteger('status');
             $table->timestamps();
         });

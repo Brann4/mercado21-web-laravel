@@ -28,6 +28,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('current_status');
             $table->unsignedInteger('payment_status');
             $table->unsignedInteger('billing_status');
+            $table->unsignedInteger('sale_status');
+            $table->unsignedInteger('command_status');
             $table->timestamps();
             $table->foreign('customer_id')->references('customer_id')->on('customers');
             $table->foreign('payment_method_id')->references('payment_method_id')->on('payment_methods');

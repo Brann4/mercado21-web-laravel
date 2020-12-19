@@ -22,6 +22,7 @@ class CreateOrderDetailsTable extends Migration
             $table->decimal('unit_price', 6, 2);
             $table->decimal('amount', 6, 2);
             $table->string('observation', 200)->nullable();
+            $table->unsignedInteger('item_type');
             $table->timestamps();
             $table->foreign('order_id')->references('order_id')->on('orders');
         });

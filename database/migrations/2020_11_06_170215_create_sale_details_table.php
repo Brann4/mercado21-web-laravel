@@ -20,7 +20,8 @@ class CreateSaleDetailsTable extends Migration
             $table->string('item_description', 200);
             $table->unsignedInteger('quantity');
             $table->decimal('unit_value', 6, 2);
-            $table->decimal('unit_price', 6, 2);
+            $table->decimal('igv', 6, 2);
+            $table->decimal('amount', 6, 2);
             $table->timestamps();
             $table->foreign('sale_id')->references('sale_id')->on('sales');
         });
