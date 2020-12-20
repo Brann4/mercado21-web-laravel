@@ -1,26 +1,30 @@
 <section class="footer-area pt-100">
-    <div class="subscribe-area">
-        <div class="container-lg">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="subscribe-content">
-                        <h2><i class="fas fa-envelope"></i> Nuestras ofertas</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <form class="newsletter-form">
-                        <input type="email" class="input-newsletter" placeholder="Correo electrónico" name="email" required autocomplete="off">
-                        <button type="submit">Suscribirse</button>
-                        <div id="validator-newsletter" class="form-result"></div>
-                    </form>
-                </div>
-            </div>
+    <div class="container">
+        <div class="footer-content-item">
+            <a href="#">
+                <img src="assets/img/logo.png" alt="image">
+            </a>
+            <ul class="list">                
+                <li>
+                    <a href="{{ route('pages.home') }}">Inicio</a>
+                </li>
+                <li>
+                    <a href="{{ route('pages.menu') }}">Carta Digital</a>
+                </li>
+                <li>
+                    <a href="{{ route('pages.restaurants') }}">Restaurantes</a>
+                </li>
+                <li>
+                    <a href="{{ route('pages.contact-us') }}">Contactanos</a>
+                </li>
+            </ul>
+            <p>Alguna frase gozu</p>
         </div>
     </div>
     <div class="footer-bottom-area">
         <div class="container">
             <p>
-                <i class="far fa-copyright"></i> 2020 Br4. Todos los derechos reservados
+                <i class="far fa-copyright"></i> 2020 Todos los derechos reservados.
             </p>
             <ul class="social">
                 <li class="facebook">

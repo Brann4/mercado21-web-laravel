@@ -6473,6 +6473,7 @@ Contact Area CSS
   -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
           box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
   padding: 30px;
+  margin-top:30px;
   border-radius: 5px;
 }
 
@@ -7366,7 +7367,8 @@ Footer Area CSS
   max-width: 725px;
   margin: auto;
   text-align: center;
-  padding-top: 60px;
+  position:relative;
+  padding-top: 0px;
   padding-bottom: 50px;
 }
 
@@ -7689,4 +7691,7 @@ Go Top CSS
 }
 .woocommerce-topbar{
   margin: 40px 0px 60px 0px;
+}
+.checkout-header{
+  height: 25vh;
 }

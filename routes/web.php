@@ -23,6 +23,7 @@ Auth::routes();
 
 Route::prefix('cart')->group(function () {
     Route::get('/', 'CartController@index')->name('pages.cart.index');
+    Route::get('checkout', 'CartController@checkout')->name('pages.cart.checkout');
     Route::post('add', 'CartController@addToCart')->name('action.cart.add');
     Route::post('update', 'CartController@updateToCart')->name('action.cart.update');
     Route::post('remove', 'CartController@removeFromCart')->name('action.cart.remove');

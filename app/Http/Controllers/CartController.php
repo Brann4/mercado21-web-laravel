@@ -12,6 +12,10 @@ class CartController extends Controller
         return view('pages.cart.index');
     }
 
+    public function checkout(){
+        return view('pages.cart.checkout');
+    }
+
     public function addToCart(Request $request)
     {
         $request->validate([

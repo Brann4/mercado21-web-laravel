@@ -6,7 +6,7 @@
         <div class="d-table-cell">
             <div class="container-lg">
                 <div class="page-title-content">
-                    <h2>Carta Digital</h2>
+                    <h2>Bienvenidos a Mercado 21</h2>
                 </div>
             </div>
         </div>

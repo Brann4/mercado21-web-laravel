@@ -4,7 +4,7 @@
             <div class="main-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('pages.home') }}">
-                        <h1>Mercado21</h1>
+                        <h1>Mercado 21</h1>
                     </a>
                 </div>
             </div>
@@ -28,20 +28,20 @@
                             <a href="{{ route('pages.restaurants') }}" class="nav-link">Restaurantes</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Contactanos</a>
+                            <a href="{{ route('pages.contact-us') }}" class="nav-link">Contactanos</a>
                         </li>
                     </ul>
                     <div class="others-options d-flex align-items-center">
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="">
+                                <a href="{{ route('pages.cart.index') }}">
                                     <i class="fas fa-shopping-cart"></i>
                                     <span>0</span>
                                 </a>
                             </div>
                         </div>
                         <div class="option-item">
-                            <a href="" class="default-btn">Ingresar<span></span></a>
+                            <a href="{{ route('login') }}" class="default-btn">Ingresar<span></span></a>
                         </div>
                     </div>
                 </div>

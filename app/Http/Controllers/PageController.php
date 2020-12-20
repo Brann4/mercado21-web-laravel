@@ -43,4 +43,10 @@ class PageController extends Controller
             'products' => $products
         ]);
     }
+
+    public function contactUs(){
+        return view('pages.contact-us');
+    }
+
+
 }

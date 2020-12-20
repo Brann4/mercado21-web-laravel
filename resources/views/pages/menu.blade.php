@@ -15,8 +15,12 @@
         <img src="{{ asset('assets/img/down-shape.png') }}" alt="Mercado 21">
     </div>
 </div>
-<section class="shop-area pb-100">
-    <div class="container-lg">
+
+<section class="shop-area ptb-100">
+    <div class="container-lg">   
+        <div class="section-title">
+            <span>Mercado 21</span>
+        </div>
         <div class="woocommerce-topbar">
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 col-sm-12">
