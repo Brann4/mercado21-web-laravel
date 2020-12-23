@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="page-title-area item-bg-1">
+<div class="page-title-area item-bg-1" style="background-image: url({{ $restaurant->banner }})">
     <div class="d-table">
         <div class="d-table-cell">
             <div class="container">

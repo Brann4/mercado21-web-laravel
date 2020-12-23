@@ -11,6 +11,7 @@
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet">
+    <script type="text/javascript">var APP_URL = {!! json_encode(url('/')) !!}</script>
 </head>
 <body>
     <!-- preload -->
@@ -30,6 +31,9 @@
     <!-- footer -->
     @include('shared.footer')
     <!-- footer -->
+    <div class="modal fade" id="ModalCartResponse" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm" id="cart_added_message"></div>
+    </div>
     <!-- go top -->
     <div class="go-top">
         <i class="fas fa-chevron-up"></i>

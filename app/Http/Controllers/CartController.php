@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -12,7 +13,8 @@ class CartController extends Controller
         return view('pages.cart.index');
     }
 
-    public function checkout(){
+    public function checkout()
+    {
         return view('pages.cart.checkout');
     }
 
@@ -26,7 +28,7 @@ class CartController extends Controller
         $product_id = $request->code;
         $qty = $request->qty;
         $product = Product::find($product_id);
-        Cart::add($product->id_product, $product->name, $qty, $product->price, ['image' => $product->image]);
+        Cart::add($product->product_id, $product->name, $qty, $product->price, ['image' => $product->image]);
         return view('components.cart-added-message');
     }
 

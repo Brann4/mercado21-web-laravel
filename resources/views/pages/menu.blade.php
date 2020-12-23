@@ -28,7 +28,7 @@
                         <ul class="list-unstyled p-0 m-0">
                             @foreach($restaurants as $restaurant)
                             <li class="item-restaurant">                                    
-                                <a href="#" data-toggle="tooltip" data-placement="bottom">
+                                <a href="{{ route('pages.restaurant', ['id' => $restaurant->restaurant_id, 'title' => str_slug($restaurant->name)]) }}" data-toggle="tooltip" data-placement="bottom">
                                     <img width="100px" class="img-fluid img-res" src="{{ $restaurant->logo }}" alt="{{ $restaurant->name }}">
                                 </a>                                    
                             </li>

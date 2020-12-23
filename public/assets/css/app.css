@@ -2647,7 +2647,7 @@ Pizza Shop Area CSS
 }
 
 .pizza-shop-item .image .pizza-btn .default-btn span {
-  background-color: #e60027;
+  background-color: #FBB403;
 }
 
 .pizza-shop-item .image .pizza-btn .default-btn:hover {
@@ -3794,6 +3794,9 @@ Page Title Area CSS
 
 .page-title-area.item-bg-1 {
   background-image: url(../../assets/img/bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .page-title-area::before {
@@ -6535,7 +6538,7 @@ Contact Area CSS
 }
 
 .contact-form .default-btn {
-  background-color: #e60027;
+  background-color: #fbb403;
   color: #ffffff;
 }
 
@@ -7189,7 +7192,7 @@ Book Table Area CSS
 Footer Area CSS
 =================================================*/
 .footer-area {
-  background-color: #1d1d1d;
+  background-color: #000000;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -7694,4 +7697,66 @@ Go Top CSS
 }
 .checkout-header{
   height: 25vh;
+}
+/* add */
+.modal-added-close{
+  position: absolute;
+  right: 5px;
+  top: 0;
+  z-index: 99;
+  outline: none !important;
+  padding: 0;
+}
+.modal-product-added .fa-check {
+  background: #54b268;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  line-height: 60px;
+  display: block;
+  margin: 0 auto;
+  font-size: 30px;
+  text-align: center;
+}
+.modal-product-added-message {
+  font-weight: 700;
+  font-size: 15px;
+  color: #54b268;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+.btn.btn-added, button.btn-added {
+  background: #FBB403;
+  color: #FFFFFF;
+}
+.btn.btn-added:hover{
+  background: #000000;
+}
+.btn.btn-added-dark, button.btn-added-dark {
+  background: #FFFFFF;
+  color: #000000;
+  border: 2px solid #000000;
+  font-weight: 500;
+}
+.btn.btn-added-dark:hover{
+  color: #000000;
+  border-color: #000000;
+}
+.modal-product-added-actions{
+  text-align: center;
+}
+.modal-product-added-actions a {
+  display: block;
+  padding: 12px;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+.btn-added-light{
+  text-decoration: underline !important;
+  font-weight: 500;
+  background: transparent !important;
+  outline: none !important;
 }

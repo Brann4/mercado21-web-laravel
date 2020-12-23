@@ -36,7 +36,7 @@
                             <div class="cart-btn">
                                 <a href="{{ route('pages.cart.index') }}">
                                     <i class="fas fa-shopping-cart"></i>
-                                    <span>0</span>
+                                    <span>{{ Cart::count() }}</span>
                                 </a>
                             </div>
                         </div>

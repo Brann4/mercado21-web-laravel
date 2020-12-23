@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre de Usuario" required autofocus>
+                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre" required autofocus>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>

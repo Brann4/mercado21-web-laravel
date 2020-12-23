@@ -1,8 +1,8 @@
 <section class="footer-area pt-100">
     <div class="container">
         <div class="footer-content-item">
-            <a href="#">
-                <img src="assets/img/logo.png" alt="image">
+            <a href="{{ route('pages.home') }}">
+                <img src="{{ asset('assets/img/logo-footer.png') }}" alt="image">
             </a>
             <ul class="list">                
                 <li>
@@ -18,7 +18,7 @@
                     <a href="{{ route('pages.contact-us') }}">Contactanos</a>
                 </li>
             </ul>
-            <p>Alguna frase gozu</p>
+            <p>Mercado 21</p>
         </div>
     </div>
     <div class="footer-bottom-area">

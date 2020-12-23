@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12">
-                        <button type="submit" class="default-btn">Send Message<i class="flaticon-play-button"></i><span></span></button>
+                        <button type="submit" class="default-btn">Enviar Mensaje<i class="flaticon-play-button"></i><span></span></button>
                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                         <div class="clearfix"></div>
                     </div>

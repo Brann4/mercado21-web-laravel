@@ -2,7 +2,7 @@
     <div class="image">
         <img src="{{ $product->image }}" alt="{{ $product->name }}">
         <div class="pizza-btn">
-            <a href="" class="default-btn">Agregar Carrito <i class="fas fa-cart-plus"></i><span></span></a>
+            <button type="button" class="default-btn add_to_cart" data-code="{{ $product->product_id }}" data-qty="1">Agregar Carrito <i class="fas fa-cart-plus"></i><span></span></button>
         </div>
     </div>
     <div class="content">
