@@ -41,7 +41,11 @@
                             </div>
                         </div>
                         <div class="option-item">
+                            @auth
+                            <a href="{{ route('pages.panel.index') }}" class="default-btn">Mi Cuenta<span></span></a>
+                            @else
                             <a href="{{ route('login') }}" class="default-btn">Ingresar<span></span></a>
+                            @endauth
                         </div>
                     </div>
                 </div>

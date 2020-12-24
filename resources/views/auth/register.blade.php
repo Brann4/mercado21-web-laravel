@@ -19,10 +19,30 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre" required autofocus>
+                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombres" required autofocus>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                            <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" placeholder="Apellidos" required>
+                                @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group{{ $errors->has('cell_phone') ? ' has-error' : '' }}">
+                            <input id="cell_phone" type="text" class="form-control" name="cell_phone" value="{{ old('cell_phone') }}" placeholder="Teléfono" required>
+                                @if ($errors->has('cell_phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cell_phone') }}</strong>
                                     </span>
                                 @endif
                         </div>

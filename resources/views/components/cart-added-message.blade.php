@@ -5,7 +5,7 @@
         <p class="modal-product-added-message">Producto agregado<br> al Carrito</p>
         <div class="modal-product-added-actions">
             <a href="{{ route('pages.cart.index') }}" class="btn btn-added">Ir al Carrito</a>
-            <a href="{{ route('pages.cart.checkout') }}" class="btn btn-added-dark">Checkout</a>
+            <a href="{{ route('pages.checkout.index') }}" class="btn btn-added-dark">Checkout</a>
             <a href="#" onClick="return false" data-dismiss="modal" class="btn-added-light">Seguir comprando</a>
         </div>
     </div>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cart;
 
-class DashboardController extends Controller
+class CheckoutController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard.index');
+        if(Cart::count() == 0) return redirect()->back();
+        return view('pages.checkout.index');
     }
 }

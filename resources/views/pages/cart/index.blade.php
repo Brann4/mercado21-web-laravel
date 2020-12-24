@@ -63,12 +63,12 @@
                                 @foreach(Cart::content() as $row)
                                 <tr>
                                     <td class="product-thumbnail">
-                                        <a href="">
+                                        <a href="{{ route('pages.product', ['id' => $row->id, 'title' => str_slug($row->name)]) }}">
                                             <img src="{{ $row->options->image }}" alt="Mercado 21">
                                         </a>
                                     </td>
                                     <td class="product-name">
-                                        <a href="">{{ $row->name }}</a>
+                                        <a href="{{ route('pages.product', ['id' => $row->id, 'title' => str_slug($row->name)]) }}">{{ $row->name }}</a>
                                     </td>
                                     <td class="product-price">
                                         <span class="unit-amount">S/ {{ number_format($row->price, 2) }}</span>
@@ -106,7 +106,7 @@
                             <span><b>S/ {{ number_format(Cart::total(), 2) }}</b></span>
                             </li>
                         </ul>
-                        <a href="{{ route('pages.cart.checkout') }}" class="btn-block default-btn">PROCEDER CON EL PAGO<span></span></a>
+                        <a href="{{ route('pages.checkout.index') }}" class="btn-block default-btn">PROCEDER CON EL PAGO<span></span></a>
                     </div>
                 </form>
             </div>

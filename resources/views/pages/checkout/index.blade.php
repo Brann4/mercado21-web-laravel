@@ -61,25 +61,6 @@
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Numero de Tarjeta</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Titular de Tarjeta</label>
-                                        <input type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>CVV</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Mas informacion de la orden..." class="form-control"></textarea>
@@ -100,36 +81,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach(Cart::content() as $row)
                                     <tr>
                                         <td class="product-name">
-                                            <a href="#">Dungeon Burgers</a>
+                                            <a href="#">{{ $row->name }}</a>
                                         </td>
                                         <td class="product-total">
-                                            <span class="subtotal-amount">S/.455.00</span>
+                                            <span class="subtotal-amount">S/ {{ number_format($row->total, 2) }}</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="product-name">
-                                            <a href="#">Pit Master Burgers</a>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="subtotal-amount">S/.541.50</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-name">
-                                            <a href="#">Backyard Burgers</a>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="subtotal-amount">S/.140.50</span>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                     <tr>
                                         <td class="total-price">
                                             <span>TOTAL DE ORDEN</span>
                                         </td>
                                         <td class="product-subtotal">
-                                            <span class="subtotal-amount">S/.1713.50</span>
+                                            <span class="subtotal-amount">S/ {{ number_format(Cart::total(), 2) }}</span>
                                         </td>
                                     </tr>
                                 </tbody>

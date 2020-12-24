@@ -28,9 +28,9 @@
 		$('.go-top').on('click', function() {
 			$("html, body").animate({ scrollTop: "0" },  500);
 		});
-	});
-
-	//cart plus minus
+	})
+    
+    //cart plus minus
 	$(function () {
 		var i = $(".quantity").attr("min"),
 			a = $(".quantity").attr("max");
@@ -72,7 +72,7 @@
             var button = $(this);
             var code = $(this).attr("data-code");
             var qty = parseInt(button.parent().find("#product_detail_quantity").val());
-            addToCart(code, qty, button);
+            addToCart(code, qty);
         })
 
         //Add to cart
@@ -136,6 +136,6 @@
             });
 		};
     });
-  
+
 })(jQuery);
   

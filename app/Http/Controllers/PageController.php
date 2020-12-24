@@ -44,6 +44,16 @@ class PageController extends Controller
         ]);
     }
 
+    public function product($id, $title)
+    {
+        $product = Product::where('status', 1)->where('product_id', $id)->first();
+        $related = Product::where('category_id', $product->category_id)->where('status', 1)->where('product_id', '<>', $id)->inRandomOrder()->limit(6)->get();
+        return view('pages.product', [
+            'product' => $product,
+            'related' => $related
+        ]);
+    }
+
     public function contactUs(){
         return view('pages.contact-us');
     }
