@@ -38,6 +38,10 @@ Route::prefix('checkout')->group(function () {
     Route::get('denomination/ruc/{document_number}', 'CheckoutController@denominationRUC')->name('action.checkout.denomination.ruc');
 });
 
+Route::prefix('payments')->group(function () {
+    Route::post('order/charge', 'PaymentController@orderCharge')->name('action.payments.order.charge');
+});
+
 Route::prefix('panel')->group(function () {
     Route::get('/', 'DashboardController@index')->name('pages.panel.index');
     Route::get('orders', 'DashboardController@orders')->name('pages.panel.orders');

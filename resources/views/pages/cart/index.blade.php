@@ -31,7 +31,7 @@
                             </div>
                             <h3 class="font-title font-700 m-0">Tu carrito está vacío</h3>
                             <div class="mt-5">
-                                <a href="{{ route('pages.menu') }}" class="btn btn-md btn-black">Agregar Productos</a>
+                                <a href="{{ route('pages.menu') }}" class="btn default-btn">Agregar Productos</a>
                             </div>
                         </div>
                     </div>

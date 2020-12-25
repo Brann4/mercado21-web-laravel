@@ -100,6 +100,9 @@ class CheckoutController extends Controller
                     $billingData->denomination = $request->denomination;
                     $billingData->save();
                 }
+
+                //cart session destroy
+                Cart::destroy();
             }
 
             return redirect()->action('CheckoutController@orderSuccess', [

@@ -3,7 +3,7 @@ var order_code = document.getElementById("order_code");
 var order_total = document.getElementById("order_total");
 var total_number = document.getElementById("order_total_number");
 //public key
-Culqi.publicKey = 'pk_test_740680644f70d37c';
+Culqi.publicKey = PUBLIC_KEY;
 
 //culqi options
 Culqi.options({
@@ -39,13 +39,23 @@ function culqi() {
         var order = order_code.value;
         var amount = order_total.value;
         //send
-        SendPayment(token, order, amount);
+        sendPayment(token, order, amount);
     } else {
-        console.log(Culqi.error);
+        // console.log(Culqi.error);
+        Swal.fire({
+            icon: 'warning',
+            text: 'Ocurrio algún error. Inténtalo de nuevo más tarde.',
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.value) {
+                window.location.reload();
+            }
+        })
     }
 };
 
-function SendPayment(token, order, amount){
+function sendPayment(token, order, amount){
     var _token = $("meta[name='csrf-token']").attr("content");
     var endpoint = document.getElementById("order_endpoint").value;
     $.ajax({
@@ -62,24 +72,24 @@ function SendPayment(token, order, amount){
                 Swal.fire({
                     icon: 'success',
                     text: response.message,
-                    confirmButtonColor: '#1F6534',
+                    confirmButtonColor: '#000000',
                     confirmButtonText: 'OK'
-                  }).then((result) => {
+                }).then((result) => {
                     if (result.value) {
                         window.location.reload();
                     }
-                  })
+                })
             }else if(response.status == 'failed'){
                 Swal.fire({
                     icon: 'warning',
                     text: response.message,
-                    confirmButtonColor: '#1F6534',
+                    confirmButtonColor: '#000000',
                     confirmButtonText: 'OK'
-                  }).then((result) => {
+                }).then((result) => {
                     if (result.value) {
                         window.location.reload();
                     }
-                  })
+                })
             }
             $("#dimmer_pay").removeClass('active');
         }
