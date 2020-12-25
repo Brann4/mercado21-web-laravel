@@ -31,6 +31,11 @@ Route::prefix('cart')->group(function () {
 
 Route::prefix('checkout')->group(function () {
     Route::get('/', 'CheckoutController@index')->name('pages.checkout.index');
+    Route::post('order/store', 'CheckoutController@orderStore')->name('action.checkout.order.store');
+    Route::get('order/{order_id}/success', 'CheckoutController@orderSuccess')->name('action.checkout.order.success');
+    //data person
+    Route::get('denomination/dni/{document_number}', 'CheckoutController@denominationDNI')->name('action.checkout.denomination.dni');
+    Route::get('denomination/ruc/{document_number}', 'CheckoutController@denominationRUC')->name('action.checkout.denomination.ruc');
 });
 
 Route::prefix('panel')->group(function () {

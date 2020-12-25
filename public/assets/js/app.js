@@ -137,5 +137,115 @@
 		};
     });
 
+    //invoicing
+    $(function () {
+
+        function requiredInvoiceData(required){
+            $('#collapseInvoiceData .form-control').prop('required', required);
+        }
+
+        $(document).on('change', '#switchInvoice', function(){
+            var checkInvoice = $(this).is(":checked");
+            if(checkInvoice){
+                requiredInvoiceData(true);
+            }else{
+                requiredInvoiceData(false);
+            }
+            $('#collapseInvoiceData').collapse('toggle');
+        })
+
+        $(document).on('change', '#invoice_type', function(e){
+            e.preventDefault();
+            if($(this).val() == '01')
+            {
+                $('#doc_type').html('(RUC)');
+                $('#document_type').val('06');
+            }else if($(this).val() == '03'){
+                $('#doc_type').html('(DNI)');
+                $('#document_type').val('01');
+            }
+        })
+
+        $(document).on('click', '#validate_data_person', function(e){
+            e.preventDefault();
+            var invoice_type = $('#invoice_type').val();
+            var document_number = $('#document_number').val();
+            var person_type = 1;
+            if(document_number)
+            {
+                var url_api = '';
+                if(invoice_type == '01') person_type = 2;
+                if(person_type == 1){
+                    url_api = `${APP_URL}/checkout/denomination/dni/${document_number}`;
+                }else if(person_type == 2){
+                    url_api = `${APP_URL}/checkout/denomination/ruc/${document_number}`;
+                }
+                $.ajax({
+                    type: "GET",
+                    url: url_api,
+                    cache: false,
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    beforeSend: function(){
+                        $('#button_order_submit').prop('disabled', true);
+                        $('#denomination').val('Buscando..');
+                    },
+                    success: function(response){
+                        $('#denomination').val(response.denomination);
+                        $('#button_order_submit').prop('disabled', false);
+                    }
+                });
+            }
+        })
+        
+        requiredInvoiceData(false);
+    })
+
+    //validations
+    $(function () {
+        // validate form checkout
+        $("#form_checkout").validate({
+            rules: {
+                cell_phone: {
+                    required: true
+                },
+                district_id: {
+                    required: true
+                },
+                address : {
+                    required: true
+                },
+                invoice_type: { 
+                    required: true
+                },
+                document_number: {
+                    required: true
+                },
+                denomination: {
+                    required: true
+                }
+            },
+            messages: {
+                cell_phone: {
+                    required: "Este campo es requerido."
+                },
+                district_id: {
+                    required: "Este campo es requerido."
+                },
+                address: {
+                    required: "Este campo es requerido."
+                },
+                invoice_type: {
+                    required: "Este campo es requerido."
+                },
+                document_number: {
+                    required: "Este campo es requerido."
+                },
+                denomination: {
+                    required: "Este campo es requerido."
+                }
+            }
+        });
+    })
+
 })(jQuery);
   

@@ -8,67 +8,115 @@
 </div>
 
 <section class="checkout-area ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="user-actions">
-                    <i class="fas fa-share"></i>
-                    <span>Desea ingresar como cliente? <a href="#">Haga click aqui</a></span>
-            </div>
-        </div>
-    </div>
-        <form>
+    <div class="container-lg">
+        <form id="form_checkout" method="POST" action="{{ route('action.checkout.order.store') }}">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="billing-details">
-                        <h3 class="title">Detalles de Compra</h3>
+                        <h3 class="title">Detalles del Pedido</h3>
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <label>Distritos</label>
-                                    <div class="select-box">
-                                        <select class="form-control">
-                                            <option > -- Seleccione su distrito -- </option>
-                                            <option value="1">Alto de la Alianza</option>
-                                            <option value="2">Calana</option>
-                                            <option value="3">Ciudad Nueva</option>
-                                            <option value="4">Gregorio Albarracin Lanchipa</option>
-                                            <option value="5">Inclan</option>
-                                            <option value="6">La Yarada los Palos</option>
-                                            <option value="7">Pachia</option>
-                                            <option value="8">Pocollay</option>
-                                            <option value="9">Sama</option>
-                                            <option value="10">Tacna</option>
-                                        </select>
-                                    </div>
+                                    <label>Correo electrónico</label>
+                                    <input type="text" value="{{ Auth::user()->email }}" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Nombres</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" value="{{ Auth::user()->name }}" class="form-control" readonly>
                                 </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Apellidos</label>
+                                    <input type="text" value="{{ Auth::user()->last_name }}" class="form-control" readonly>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Apellidos</label>
-                                        <input type="text" class="form-control">
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Teléfono <span class="required">*</span></label>
+                                    <input type="text" name="cell_phone" value="{{ Auth::user()->cell_phone }}" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Distrito <span class="required">*</span></label>
+                                    <div class="select-box">
+                                        <select class="form-control" name="district_id" required>
+                                            <option value=""> -- Seleccione su distrito -- </option>
+                                            @foreach($ubigeos as $ubigeo)
+                                            <option value="{{ $ubigeo->ubigeo_id }}">{{ $ubigeo->district }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Dirección<span class="required">*</span></label>
-                                        <input type="text" class="form-control">
-                                    </div>
+                            </div>
+                            <div class="col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Dirección <span class="required">*</span></label>
+                                    <input type="text" name="address" class="form-control" required>
                                 </div>
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Mas informacion de la orden..." class="form-control"></textarea>
-                                    </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Referencia</label>
+                                    <textarea name="reference" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- invoice data -->
+                    <div class="billing-details mt-4">
+                        <div class="d-flex aling-items-center">
+                            <div class="flex-grow-1">
+                                <h3 class="title">Datos de Facturación</h3>
+                            </div>
+                            <div class="ml-2">
+                                <div class="custom-control custom-switch p-0 m-0">
+                                    <input type="checkbox" name="billing_status" class="custom-control-input" id="switchInvoice">
+                                    <label class="custom-control-label" for="switchInvoice"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="collapseInvoiceData">
+                            <!-- df -->
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Tipo de Comprobante <span class="required">*</span></label>
+                                        <input type="hidden" name="document_type" id="document_type" class="form-control" value="01" readonly>
+                                        <select class="form-control" name="invoice_type" id="invoice_type" required>
+                                            <option value="03">BOLETA DE VENTA</option>
+                                            <option value="01">FACTURA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Número de Documento <span id="doc_type">(DNI)</span><span class="required">*</span></label>
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <input type="text" name="document_number" id="document_number" class="form-control" required>
+                                            </div>
+                                            <div>
+                                                <button type="button" id="validate_data_person" class="btn btn-sm btn-dark btn-validate-sunat h-auto py-3">VALIDAR</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Denominación <span class="required">*</span></label>
+                                        <input type="text" name="denomination" id="denomination" class="form-control" required readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- df -->
+                        </div>
+                    </div>
+                    <!-- invoice data -->
+                </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="order-details">
                         <h3 class="title">Lista de Pedidos</h3>
@@ -84,7 +132,7 @@
                                     @foreach(Cart::content() as $row)
                                     <tr>
                                         <td class="product-name">
-                                            <a href="#">{{ $row->name }}</a>
+                                            <a href="{{ route('pages.product', ['id' => $row->id, 'title' => str_slug($row->name)]) }}">{{ $row->name }}</a>
                                         </td>
                                         <td class="product-total">
                                             <span class="subtotal-amount">S/ {{ number_format($row->total, 2) }}</span>
@@ -105,18 +153,31 @@
                     <div class="payment-box">
                         <div class="payment-method">
                             <p>
-                                <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
-                                <label for="direct-bank-transfer">Tarjeta de Crédito</label>
-                                Debe llenar obligatoriamente los datos solicitados de: Titular, Numero y CVV de la Tarjeta de crédito.
-                                Su pedido no se enviará hasta que los fondos se hayan liquidado en nuestra cuenta.
+                                <input type="radio" id="direct-bank-transfer" name="payment_method_id" value="4" checked>
+                                <label for="direct-bank-transfer">Tarjeta de Crédito (CULQI)</label>
+                                <div class="px-2 px-md-3">
+                                    <img class="img-fluid" src="{{ asset('assets/img/icons/cards.png') }}" />
+                                </div>
                             </p>
                             <p>
-                                <input type="radio" id="cash-on-delivery" name="radio-group">
-                                <label for="cash-on-delivery">Pago Efectivo</label>
+                                <input type="radio" id="electronic-wallet" name="payment_method_id" value="3">
+                                <label for="electronic-wallet">Billetera Electrónica (Yape, Lukita, Tunki)</label>
+                                <div class="w-100 px-2 px-md-3">
+                                    <img width="200px" class="img-fluid" src="{{ asset('assets/img/icons/billetera-electronica.jpg') }}" />
+                                    <div class="py-1"><small>Escanea nuestro código QR a través de tu billetera electrónica.</small></div>
+                                    <img width="200px" class="img-fluid" src="{{ asset('assets/img/icons/qr.svg') }}" />
+                                </div>
+                            </p>
+                            <p>
+                                <input type="radio" id="cash-on-delivery" name="payment_method_id" value="1">
+                                <label for="cash-on-delivery">Contra Entrega</label>
                                 Puede realizar su pago una vez el pedido haya llegado. 
                             </p>
                         </div>
-                        <a href="#" class="default-btn order-btn">COMPRAR<span></span></a>
+                        <div>
+                            {{ csrf_field() }}
+                            <button type="submit" id="button_order_submit" class="default-btn order-btn">REALIZAR PEDIDO S/ {{ number_format(Cart::total(), 2) }}<span></span></button>
+                        </div>
                     </div>
                 </div>
                 </div>

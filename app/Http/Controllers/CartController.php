@@ -23,7 +23,7 @@ class CartController extends Controller
         $product_id = $request->code;
         $qty = $request->qty;
         $product = Product::find($product_id);
-        Cart::add($product->product_id, $product->name, $qty, $product->price, ['image' => $product->image]);
+        Cart::add($product->product_id, $product->name, $qty, $product->price, ['image' => $product->image, 'item_code' => $product->code]);
         return view('components.cart-added-message');
     }
 
