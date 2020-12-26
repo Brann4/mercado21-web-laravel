@@ -44,6 +44,8 @@ Route::prefix('payments')->group(function () {
 
 Route::prefix('panel')->group(function () {
     Route::get('/', 'DashboardController@index')->name('pages.panel.index');
+    Route::post('changePassword', 'DashboardController@changePassword')->name('pages.panel.changePassword');
+    Route::post('updateAccount', 'DashboardController@updateAccount')->name('pages.panel.updateAccount');
     Route::get('orders', 'DashboardController@orders')->name('pages.panel.orders');
     Route::get('orders/{id}', 'DashboardController@order')->name('pages.panel.order');
 });

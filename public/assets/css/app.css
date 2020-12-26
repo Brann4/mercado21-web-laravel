@@ -8303,3 +8303,18 @@ body.dimmable > .dimmer {
 }
 
 /* dimmer */
+
+/*  Tabs - Custmer Panel */
+.customer-content{
+  border: 1px solid #6c757d;
+  border-radius: 2px;
+  margin: 5px;
+  padding: 15px;
+  width: 100%;
+}
+.pt-10{
+  padding-top:10px;
+}
+
+
+
