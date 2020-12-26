@@ -3802,7 +3802,8 @@ Page Title Area CSS
   display: inline-block;
 }
 .item-restaurant .img-res{
-  max-width: 100px;
+  max-width: 90px;
+  border-radius: 50%;
 }
 
 /*================================================

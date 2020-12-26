@@ -30,6 +30,6 @@
                     <input class="form-control" type="password" id="new_password_confirm" name="new_password_confirm" placeholder="Repetir nueva contraseña">
                 </div>
                                    
-                <button class="btn default-btn" type="submit">Actualizar contraseña</button>
+                <button class="btn default-btn" type="submit">Cambiar</button>
             </form>                        
     </div>

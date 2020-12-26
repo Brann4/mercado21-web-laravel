@@ -16,13 +16,13 @@
     </div>
 </div>
 
-<section class="shop-area ptb-100">
+<section class="shop-area ptb-50">
     <div class="container-lg">   
         <div class="section-title">
-            <span>Mercado 21</span>
+            <span>Restaurantes</span>
         </div>
         <div class="woocommerce-topbar">
-            <div class="row align-items-center">
+            <div class="row align-items-center space-img">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="w-100 text-center">                      
                         <ul class="list-unstyled p-0 m-0">

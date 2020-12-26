@@ -13,8 +13,8 @@
             <div role="tabpanel" class="d-flex align-items-start">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item"><a class="nav-link active" href="#Inicio" data-toggle="tab" role="tab">Inicio</a></li>
-                    <li role="presentation"><a class="nav-link"  href="#miCuenta" data-toggle="tab" role="tab">Mi cuenta</a></li>
-                    <li role="presentation"><a class="nav-link"  href="#Ordenes" data-toggle="tab" role="tab">Ordenes</a></li>
+                    <li role="presentation"><a class="nav-link"  href="#miCuenta" data-toggle="tab" role="tab">Cuenta</a></li>
+                    <li role="presentation"><a class="nav-link"  href="#Ordenes" data-toggle="tab" role="tab">Mis Ordenes</a></li>
                     <li role="presentation">
                         <a class="nav-link"  
                            href="{{ route('logout')}}"  
@@ -32,14 +32,14 @@
             </div>
             <div class="tab-content customer-content">
                 <div role="tabpanel" class="tab-pane active" id="Inicio">
-                
                     @include('panel.changePassword')
                 </div>
                 <div role="tabpanel" class="tab-pane" id="miCuenta">
                     @include('panel.updateAccount')
                 </div>
                 <div role="tabpanel" class="tab-pane" id="Ordenes">
-                    @include('panel.orders')
+                     @include('panel.ownOrders')
+
                 </div>
             </div>
     </div>

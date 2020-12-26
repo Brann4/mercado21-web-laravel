@@ -22,11 +22,14 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('panel.index');
+        $orders = Order::all();
+        return view('panel.index', [
+            'orders' => $orders
+        ]);
     }
-    public function orders()
+    public function ownOrders()
     {
-        return view('panel.orders');
+        return view('panel.ownOrders');
     }
 
     public function changePassword(Request $request)
@@ -46,16 +49,10 @@ class DashboardController extends Controller
             return back()->with('error','La nueva contraseña no puede ser igual a la actual');
         }
 
-        //try{
-            $user = Auth::user();
-            $user->password = bcrypt($new_password);
-            $user->update();
-            return back()->with('message', 'Campo(s) actualizados correctamente'); 
-        /* }
-        catch(\Exception $ex ){
-            report($ex);
-        } */
-
+        $user = Auth::user();
+        $user->password = bcrypt($new_password);
+        $user->update();
+        return back()->with('message', 'Campo(s) actualizados correctamente'); 
     }
 
     public function updateAccount(Request $request)
@@ -69,8 +66,7 @@ class DashboardController extends Controller
         if($modified_name != null) $user->name = $modified_name;
         if($modified_lastname != null) $user->last_name = $modified_lastname;
         if($modified_cellphone != null) $user->cell_phone = $modified_cellphone;      
-        if($modified_email != null) $user->email = $modified_email;
-        
+        if($modified_email != null) $user->email = $modified_email;     
         $user->update();
         return back()->with('message', 'Campos actualizados correctamente'); 
     }
