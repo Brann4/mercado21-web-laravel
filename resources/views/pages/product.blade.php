@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', $product->name)
+@section('description', $product->description)
 
 @section('content')
 <div class="page-title-area item-bg-1" style="background-image: url({{ $product->image }})">

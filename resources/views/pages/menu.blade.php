@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Carta Digital')
 
 @section('content')
 <div class="page-title-area item-bg-1">

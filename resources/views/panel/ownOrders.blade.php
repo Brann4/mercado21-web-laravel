@@ -5,39 +5,27 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col text-center">Codigo</th>
-                    <th scope="col text-center">Metodo de Pago</th>
-                    <th scope="col text-center">Fecha y Hora</th>
-                    <th scope="col">Estado del Pedido</th>
-                    <th scope="col text-center">Total</th>
+					<th></th>
+                    <th scope="col" class="text-center">Codigo</th>
+                    <th scope="col" class="text-center">Metodo de Pago</th>
+                    <th scope="col" class="text-center">Fecha y Hora</th>
+                    <th scope="col" class="text-center">Estado del Pedido</th>
+                    <th scope="col" class="text-center">Total</th>
                 </tr>
             </thead>
             <tbody>
               @foreach($orders as $order)
                 <tr>
+					<td class="text-center">
+						<a href="{{ route('pages.panel.orderDetail', ['id' => $order->order_id]) }}" title="Ver Pedido"><i class="fa fa-eye"></i></a> 
+					</td>
                     <td class="product-thumbnail text-center">       
                         <a href="{{ route('pages.panel.orderDetail', ['id' => $order->order_id]) }}">{{ $order->order_id}}</a>                    
                     </td>
-                    <td class="product-name">
-                        <a href="#">
-                            @if($order->payment_method_id == 4)
-                                <div class="px-2 px-md-3">
-                                    <img class="img-fluid" src="{{ asset('assets/img/icons/cards.png') }}" />
-                                </div>
-                            @endif
-                            @if($order->payment_method_id == 3)
-                                <div class="px-2 px-md-3">
-                                    <img class="img-fluid" src="{{ asset('assets/img/icons/billetera-electronica.jpg') }}" />
-                                </div>
-                            @endif
-                            @if($order->payment_method_id == 1)
-                                <div class="px-2 px-md-3">
-                                    
-                                </div>
-                            @endif
-                        </a>
+                    <td class="product-name text-center">
+						<span class="unit-amount">{{ $order->paymentMethod->name }}</span>
                     </td>
-                    <td class="product-price">
+                    <td class="product-price text-center">
                         <span class="unit-amount">{{$order->order_date}} {{ $order-> order_hour}}</span>
                     </td>
                     <td class="product-quantity text-center">
@@ -58,7 +46,7 @@
                             @endif
                         
                     </td>
-                    <td class="product-subtotal">
+                    <td class="product-subtotal text-center">
                         <span class="subtotal-amount">S/.{{ $order->total }}</span>
                     </td>
                 </tr>

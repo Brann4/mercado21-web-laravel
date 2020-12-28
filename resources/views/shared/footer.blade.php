@@ -33,22 +33,17 @@
             </p>
             <ul class="social">
                 <li class="facebook">
-                    <a href="#" target="_blank">
+                    <a href="https://www.facebook.com/mercado21.pe" rel="noreferrer" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
-                <li class="twitter">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
                 <li class="instagram">
-                    <a href="#" target="_blank">
+                    <a href="https://www.instagram.com/mercado21.pe/" rel="noreferrer" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
                 <li class="whatsapp">
-                    <a href="#" target="_blank">
+                    <a href="https://wa.me/51951026113" rel="noreferrer" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </li>

@@ -7,7 +7,7 @@ return [
     ],
     
     'culqi_keys' => [
-        'public' => 'pk_test_43512e22642b77c6',
-        'secret' => 'sk_test_980a52f6be2d0b74'
+        'public' => 'pk_test_VtNjmMCows8S01pQ',
+        'secret' => 'sk_test_0WU0UPgiugZzfFDw'
     ]
 ];

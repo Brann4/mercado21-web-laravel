@@ -8317,5 +8317,39 @@ body.dimmable > .dimmer {
   padding-top:10px;
 }
 
+/* checkout complete */
+.bg-content-5{
+  background: #F8FBFD;
+}
+.box-check-c{
+  width: 100%;
+  position: relative;
+  background: #FFFFFF;
+  padding: 30px 15px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 4px -2px #171616;
+}
+.text-c-c-1{
+  font-size: 20px;
+  color: #171616;
+}
+.text-ct1{
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.text-code-order{
+  color: #171616;
+  font-size: 18px;
+}
+.text-code-order span{
+  font-weight: 900;
+  font-size: 24px;
+}
+.text-c-d-1{
+  font-weight: 400;
+  color: rgba(23, 22, 22, 0.85);
+  font-size: 16px;
+}
+/* checkout complete */
 
 

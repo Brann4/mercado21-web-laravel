@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', $restaurant->name)
+@section('description', $restaurant->description)
 
 @section('content')
 <div class="page-title-area item-bg-1" style="background-image: url({{ $restaurant->banner }})">

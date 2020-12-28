@@ -36,7 +36,7 @@
                 <div class="text-code-order py-3">Tu Número del Pedido es <br/><span>{{ $order->order_id }}</span></div>
                 <div class="text-c-d-1">Recibirá un correo electrónico con los detalles del pedido.</div>
                 <div class="mt-4">
-                    <a href="" class="btn default-btn">Ir al panel de pedidos</a>
+                    <a href="{{ route('pages.panel.index') }}" class="btn default-btn">Ir al panel de pedidos</a>
                 </div>
             </div>
             <!-- m -->
@@ -72,9 +72,14 @@
                 <div class="text-c-c-1 text-ct1 font-blockbe font-400">Gracias</div>
                 <div class="text-c-c-1 font-700">Tu pedido se completó con éxito</div>
                 <div class="text-code-order py-3">Tu Número del Pedido es <br/><span>{{ $order->order_id }}</span></div>
+				<div class="py-3 text-center">
+					<img width="200px" class="img-fluid" src="{{ asset('assets/img/icons/billetera-electronica.jpg') }}" />
+					<div class="py-1"><small>Escanea nuestro código QR a través de tu billetera electrónica.</small></div>
+					<img width="200px" class="img-fluid" src="{{ asset('assets/img/icons/qr.svg') }}" />
+				</div>
                 <div class="text-c-d-1">Recibirá un correo electrónico con los detalles del pedido.</div>
                 <div class="mt-4">
-                    <a href="" class="btn default-btn">Ir al panel de pedidos</a>
+                    <a href="{{ route('pages.panel.index') }}" class="btn default-btn">Ir al panel de pedidos</a>
                 </div>
             </div>
             <!-- m -->
@@ -111,7 +116,7 @@
                 <div class="text-c-c-1 fw-700">Monto Pagado <br/>S/ {{ $order->total }}</div>
                 <div class="text-code-order py-3">Tu Número de Pedido es <br/><span>{{ $order->order_id }}</span></div>
                 <div class="mt-4">
-                    <a href="" class="btn default-btn">Ir al panel de pedidos</a>
+                    <a href="{{ route('pages.panel.index') }}" class="btn default-btn">Ir al panel de pedidos</a>
                 </div>
             </div>
             <!-- m -->

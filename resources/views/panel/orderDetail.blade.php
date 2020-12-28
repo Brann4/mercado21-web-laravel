@@ -22,30 +22,30 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col text-center">Codigo</th>
-                                    <th scope="col text-center">Nombre</th>
-                                    <th scope="col text-center">Cantidad</th>
-                                    <th scope="col text-center">Precio por Unidad</th>
-                                    <th scope="col text-center">Monto Total</th>
+                                    <th scope="col" class="text-center">Codigo</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col" class="text-center">Cantidad</th>
+                                    <th scope="col" class="text-center">Precio por Unidad</th>
+                                    <th scope="col" class="text-center">Monto Total</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach($detail as $item)
                                
                                 <tr>
-                                    <td class="product-thumbnail">       
+                                    <td class="product-thumbnail text-center">       
                                         {{ $item->item_code }}
                                     </td>
                                     <td class="product-name">
                                         {{ $item->item_description}}
                                     </td>
-                                    <td class="product-price">
+                                    <td class="product-price text-center">
                                         <span class="unit-amount">{{$item->quantity}}</span>
                                     </td>
-                                    <td class="product-quantity">
+                                    <td class="product-quantity text-center">
                                         S/. {{ $item->unit_price}}
                                     </td>
-                                    <td class="product-subtotal">
+                                    <td class="product-subtotal text-center">
                                         <span class="amount">S/.{{ $item->amount }}</span>
                                     </td>
                                 </tr>

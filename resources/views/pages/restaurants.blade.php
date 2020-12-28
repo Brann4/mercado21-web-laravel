@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Restaurantes')
 
 @section('content')
 <div class="page-title-area item-bg-1" style="height: 200px">

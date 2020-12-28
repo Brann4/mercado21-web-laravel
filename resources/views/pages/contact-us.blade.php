@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Contactanos')
 
 @section('content')
 <div class="page-title-area item-bg-1">

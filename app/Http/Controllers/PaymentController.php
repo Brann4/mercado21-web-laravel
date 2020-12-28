@@ -72,7 +72,7 @@ class PaymentController extends Controller
         
         try {
             // Creamos Cargo a una tarjeta
-            // $charge = $culqi->Charges->create($charge_array);
+            $charge = $culqi->Charges->create($charge_array);
 
             if($charge->object == 'charge'){
 
@@ -92,6 +92,7 @@ class PaymentController extends Controller
             }
 
         } catch (\Exception $e) {
+			return $e;
             return response()->json(['status' => 'failed', 'message' => 'No se ha podido realizar el pago. Inténtalo de nuevo más tarde.']);
         }
     }
