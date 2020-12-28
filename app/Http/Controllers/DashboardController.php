@@ -22,14 +22,23 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::where('customer_id', Auth::user()->customer_id)->get();
         return view('panel.index', [
-            'orders' => $orders
+            'orders' => $orders,       
         ]);
     }
-    public function ownOrders()
+
+    public function orderDetail($id)
     {
-        return view('panel.ownOrders');
+        $detail = OrderDetail::where('order_id', $id)->get();
+        $total_amount = 0;
+        foreach($detail as $d){
+            $total_amount = $total_amount + $d->amount;
+        } 
+        return view('panel.orderDetail', [
+            'detail' => $detail,
+            'total_amount' => $total_amount
+        ]);
     }
 
     public function changePassword(Request $request)
@@ -70,4 +79,6 @@ class DashboardController extends Controller
         $user->update();
         return back()->with('message', 'Campos actualizados correctamente'); 
     }
+
+
 }

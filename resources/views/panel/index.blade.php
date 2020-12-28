@@ -38,8 +38,7 @@
                     @include('panel.updateAccount')
                 </div>
                 <div role="tabpanel" class="tab-pane" id="Ordenes">
-                     @include('panel.ownOrders')
-
+                    @include('panel.ownOrders')
                 </div>
             </div>
     </div>
