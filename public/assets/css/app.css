@@ -5426,11 +5426,32 @@ Cart Area CSS
   margin-right: auto;
   margin-top: 50px;
 }
+.cart-totals-table {
+  background: #ffffff;
+  padding: 40px;
+  max-width: 100%;
+  -webkit-box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.cart-customer-order-detail{
+  display: flex;
+  flex-direction: column; 
+}
+
+.cart-customer-order-detail li{
+  display: flex;
+  justify-content: space-between;
+}
 
 .cart-totals h3 {
   margin-bottom: 25px;
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .cart-totals ul {

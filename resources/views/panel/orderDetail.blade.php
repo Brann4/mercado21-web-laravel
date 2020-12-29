@@ -15,11 +15,27 @@
                     <li role="presentation" class="nav-item"><a class="nav-link active" href="{{ route('pages.panel.index') }}" ><i class="fas fa-arrow-left"></i> Volver</a></li>
                 </ul>
             </div>
+            
             <div class="tab-content customer-content">
-                <div role="tabpanel" class="tab-pane active" id="Ordenes">
-                    <h3>Detalle de Pedido</h3>
-                    <div class="cart-table table-responsive">
-                        <table class="table table-bordered">
+                <div role="tabpanel" class="tab-pane active" >
+                    <div class="cart-totals">
+                        <h3>Detalle de Pedido N° {{ $order->order_id }}</h3>
+                        <ul class="cart-customer-order-detail">
+                            <li>Cliente
+                                <b>{{ $customer->name}}, {{ $customer->last_name}}</b>
+                            </li>
+                            <li>Dirección
+                                <b>{{ $order->address }} 
+                                   {{ ($order->reference != null ? $order->reference : '')}}
+                                </b>
+                            </li>
+                            <li>TOTAL
+                                <b>S/. {{ number_format($total_amount, 2) }}</b></b>
+                            </li>
+                        </ul>
+                    </div>         
+                    <div class="cart-totals-table table-responsive">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col" class="text-center">Codigo</th>
@@ -30,8 +46,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($detail as $item)
-                               
+                            @foreach($detail as $item)                              
                                 <tr>
                                     <td class="product-thumbnail text-center">       
                                         {{ $item->item_code }}
@@ -53,15 +68,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
-                    <div class="cart-totals">
-                        <h3>Total del Pedido</h3>
-                        <ul>
-                            <li>Total
-                            <span><b>S/ {{ number_format($total_amount, 2) }}</b></span>
-                            </li>
-                        </ul>
-                    </div>
+                
                 </div>
             </div>
             

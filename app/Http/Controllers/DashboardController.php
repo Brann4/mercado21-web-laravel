@@ -31,29 +31,32 @@ class DashboardController extends Controller
     public function orderDetail($id)
     {
         $detail = OrderDetail::where('order_id', $id)->get();
+        $order = Order::where('order_id', $id)->first();
+        $customer = Auth::user();
         $total_amount = 0;
         foreach($detail as $d){
             $total_amount = $total_amount + $d->amount;
         } 
         return view('panel.orderDetail', [
             'detail' => $detail,
-            'total_amount' => $total_amount
+            'total_amount' => $total_amount,
+            'order' => $order,
+            'customer' => $customer
         ]);
     }
 
     public function changePassword(Request $request)
     {
         $request->validate([
-            'current_password' => 'required',
             'new_password' => 'required|string|min:6' 
         ]);
 
-        $current_password = $request->get('current_password');
+        $current_password = Auth::user()->password;
         $new_password = $request->get('new_password');
 
-        if(!(Hash::check($current_password, Auth::user()->password ))){
+        /*if(!(Hash::check($current_password, Auth::user()->password ))){
             return back()->with('error','La contraseña actual no coincide con los registros.');
-        }
+        }*/
         if(strcmp($current_password, $new_password) == 0 ){
             return back()->with('error','La nueva contraseña no puede ser igual a la actual');
         }
@@ -61,7 +64,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $user->password = bcrypt($new_password);
         $user->update();
-        return back()->with('message', 'Campo(s) actualizados correctamente'); 
+        return back()->with('message', 'Contraseña actualizada satisfactoriamente'); 
     }
 
     public function updateAccount(Request $request)
@@ -69,13 +72,11 @@ class DashboardController extends Controller
         $modified_name = $request->get('name');
         $modified_lastname = $request->get('last_name');
         $modified_cellphone = $request->get('cell_phone');
-        $modified_email = $request->get('email');
 
         $user = Auth::user();
         if($modified_name != null) $user->name = $modified_name;
         if($modified_lastname != null) $user->last_name = $modified_lastname;
-        if($modified_cellphone != null) $user->cell_phone = $modified_cellphone;      
-        if($modified_email != null) $user->email = $modified_email;     
+        if($modified_cellphone != null) $user->cell_phone = $modified_cellphone;        
         $user->update();
         return back()->with('message', 'Campos actualizados correctamente'); 
     }

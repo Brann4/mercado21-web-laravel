@@ -20,16 +20,9 @@
             <form action="{{ route('pages.panel.changePassword')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="mb-3">
-                    <label class="form-label">Cambiar contraseña:</label>
-                    <input class="form-control" type="password" id="current_passowrd" name="current_password" placeholder="Contraseña actual" >
-                </div>
-                <div class="mb-3">
+                    <label class="form-label">Actualizar:</label>
                     <input class="form-control" type="password" id="new_password" name="new_password" placeholder="Nueva contraseña">
-                </div>
-                <div class="mb-3">
-                    <input class="form-control" type="password" id="new_password_confirm" name="new_password_confirm" placeholder="Repetir nueva contraseña">
-                </div>
-                                   
-                <button class="btn default-btn" type="submit">Cambiar</button>
+                </div>             
+                <button class="btn default-btn" type="submit">Cambiar contraseña</button>
             </form>                        
     </div>
